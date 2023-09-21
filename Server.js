@@ -48,21 +48,72 @@ console.log("Day 1 => Hope Everthing Fine!!!")
 //Read
 const fs = require('fs')
 const path = require('path')
-fs.readFile(path.join(__dirname,'File','text.txt'), (err, data) => {
-  if (err) throw err;
-  console.log(data);
-  console.log("For Actual Data");
-  console.log(data.toString());
-});
+const fsProm = require('fs').promises
+// fs.readFile(path.join(__dirname,'File','text.txt'), (err, data) => {
+//   if (err) throw err;
+//   console.log(data);
+//   console.log("For Actual Data");
+//   console.log(data.toString());
+// });
 
-//Write
-fs.writeFile(path.join(__dirname,'File','newfile.txt'),'This is New File Containing the Write Modules', (err) => {
-  if (err) throw err;
-  console.log("Writing Success!!");
-});
+// //Write
+// fs.writeFile(path.join(__dirname,'File','newfile.txt'),'This is New File Containing the Write Modules and Today is 2nd Day!!', (err) => {
+//   if (err) throw err;
+//   console.log("Writing Success!!")
+// //Append
+// fs.appendFile(path.join(__dirname,'File','newfile.txt'),'\n\n Epadi Sikirukenu Pathaya Da!!!!\n\nNandri Vanakam', (err) => {
+//     if (err) throw err;
+//     console.log("Append Success!!");
+//   })
+// // Renaming File
+// fs.rename(path.join(__dirname,'File','apndNewFile.txt'),path.join(__dirname,'File','AppendFile.txt'), (err) => {
+//   if (err) throw err;
+//   console.log("Rename Success!!");
+//   })
+// });
+
+
+// Append With New File!
+// fs.appendFile(path.join(__dirname,'File','apndNewFile.txt'),'\n\nEpadi Sikirukenu Pathaya Da!!!!\n\nNandri Vanakam', (err) => {
+//   if (err) throw err;
+//   console.log("Append Success!!");
+// });
+
+// ==> Async Await Function
+console.log("Async Await Method!")
+
+const fileOps = async ()=>{
+  try{
+    const data = await fsProm.readFile(path.join(__dirname,'File','text.txt'),'utf8')
+    console.log(data)
+    //Write
+  await fsProm.writeFile(path.join(__dirname,'File','newfile.txt'),'This is New File Containing the Write Modules and Today is 2nd Day!!Thank You!')
+  console.log("Writing Success!!")
+    //Append
+  await fsProm.appendFile(path.join(__dirname,'File','newfile.txt'),'\n\n Epadi Sikirukenu Pathaya Da!!!!\n\nNandri Vanakam\n\nMudiyala')
+    console.log("Append Success!!");
+      // Renaming File
+  await fsProm.rename(path.join(__dirname,'File','AppendFile.txt'),path.join(__dirname,'File','ApdNewFile.txt'))
+  console.log("Rename Success!!");
+    // Append With New File!
+  await fsProm.appendFile(path.join(__dirname,'File','ApdNewFile.txt'),'\n\nEpadi Sikirukenu Pathaya Da!!!!\n\nNandri Vanakam\n\nNa Vanthutenu Sollu!!')
+  console.log("2nd Append Success!!");
+    //Append
+  await fsProm.unlink(path.join(__dirname,'File','summa.txt'))
+  }
+  catch(err){
+    console.error(err)
+  }
+}
+// Calling Function
+console.log('Calling Function!!')
+fileOps()
+console.log('Calling Completed!!!')
+
+
 
 //Error Recording!!!!!
 process.on('uncaughtException',err=>{
-  console.error(`There was an Uncaught error : ${err}`)
+console.error(`There was an Uncaught error : ${err}`)
 process.exit(1)
 });

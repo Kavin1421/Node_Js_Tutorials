@@ -10,3 +10,4 @@ const ws = fs.createWriteStream(path.join(__dirname,'File','New_BigFile.txt'))
 
 // Efficient Way
 rs.pipe(ws)
+console.log("File Copied!!")

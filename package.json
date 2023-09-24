@@ -1,0 +1,23 @@
+{
+  "name": "node_js_full",
+  "version": "1.0.0",
+  "description": "Learning Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kavin1421/Node_Js_Tutorials.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "KavinVijay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kavin1421/Node_Js_Tutorials/issues"
+  },
+  "homepage": "https://github.com/Kavin1421/Node_Js_Tutorials#readme"
+}
